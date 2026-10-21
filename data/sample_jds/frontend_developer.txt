@@ -1,0 +1,24 @@
+Senior Frontend Developer - Brightpath Software
+SAMPLE DATA: fictional job description for demonstration.
+
+About the role
+Brightpath builds a SaaS platform for project teams. We need a Senior Frontend Developer to lead development of our customer-facing web application.
+
+Responsibilities
+- Build responsive, accessible user interfaces with React and TypeScript
+- Own the component library and collaborate with designers working in Figma
+- Integrate REST APIs and GraphQL services with the backend team
+- Write unit tests with Jest and maintain CI/CD pipelines for the frontend
+- Mentor junior developers and review code
+
+Requirements
+- 5+ years of professional frontend development experience
+- Expert JavaScript, TypeScript, HTML and CSS
+- Deep experience with React and state management (Redux)
+- Strong understanding of accessibility (WCAG) and responsive design
+- Bachelor's degree in Computer Science or equivalent experience
+
+Preferred
+- Next.js and server-side rendering
+- Tailwind CSS
+- Experience working in an Agile team

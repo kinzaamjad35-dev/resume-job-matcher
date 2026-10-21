@@ -1,0 +1,24 @@
+James O'Connor
+SAMPLE DATA: fictional CV for demonstration.
+james.oconnor@example.com | +353 85 123 4567
+
+Summary
+DevOps engineer with 5 years of experience automating cloud infrastructure for financial services.
+
+Experience
+DevOps Engineer, PayRail (2021 - Present)
+- Managed 14 Kubernetes clusters on AWS EKS running 200 Docker microservices
+- Wrote Terraform modules that cut environment provisioning from 3 days to 2 hours
+- Built CI/CD pipelines with GitHub Actions and Jenkins for 40 repositories
+- Introduced Prometheus and Grafana monitoring, reducing incident detection time by 60%
+- Hardened IAM policies and led security reviews
+
+Systems Administrator, Telco Ireland (2019 - 2021)
+- Administered 300 Linux servers and automated tasks with Bash, Python and Ansible
+- Managed DNS, load balancing and networking for internal services
+
+Education
+BEng in Computer Engineering, University College Dublin (2015 - 2019)
+
+Skills
+AWS, Kubernetes, Docker, Terraform, Ansible, Jenkins, GitHub Actions, Prometheus, Grafana, Linux, Bash, Python, networking, security, Git

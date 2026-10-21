@@ -1,0 +1,24 @@
+Sara Lopez
+SAMPLE DATA: fictional CV for demonstration.
+sara.lopez@example.com | +34 600 123 456
+
+Summary
+Frontend developer with 7 years of experience building accessible, high-performance web applications.
+
+Experience
+Lead Frontend Developer, Kanban Cloud (2021 - Present)
+- Led development of a React and TypeScript design system used by 30 developers
+- Improved Lighthouse accessibility score from 72 to 98 by applying WCAG guidelines
+- Migrated the app to Next.js with server-side rendering, cutting load time by 40%
+- Mentored 5 junior developers and introduced Jest unit testing with 85% coverage
+
+Frontend Developer, Pixelcraft Agency (2018 - 2021)
+- Built responsive websites in JavaScript, HTML, CSS and Tailwind for 25 clients
+- Integrated REST APIs and GraphQL with the backend team in an Agile Scrum process
+- Worked with designers in Figma to deliver pixel-accurate UI
+
+Education
+BSc in Computer Science, Universidad de Madrid (2014 - 2018)
+
+Skills
+JavaScript, TypeScript, React, Redux, Next.js, HTML, CSS, Tailwind CSS, Jest, GraphQL, REST APIs, Figma, accessibility, responsive design, CI/CD, Git, Agile

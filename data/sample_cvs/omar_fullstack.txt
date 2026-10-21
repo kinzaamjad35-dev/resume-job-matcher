@@ -1,0 +1,22 @@
+Omar Khalid
+SAMPLE DATA: fictional CV for demonstration.
+omar.khalid@example.com | +971 50 123 4567
+
+Summary
+Full-stack developer with 3 years of experience in Python and JavaScript web applications.
+
+Experience
+Full-Stack Developer, Souq Apps (2023 - Present)
+- Developed REST APIs with Django and PostgreSQL serving 50,000 users
+- Built React frontends with JavaScript and CSS
+- Containerised services with Docker and set up GitHub Actions CI/CD
+
+Junior Web Developer, WebNest (2022 - 2023)
+- Worked on PHP and MySQL websites for small businesses
+- Responsible for fixing bugs on HTML pages
+
+Education
+BSc in Software Engineering, American University of Sharjah (2018 - 2022)
+
+Skills
+Python, Django, JavaScript, React, HTML, CSS, PostgreSQL, MySQL, Docker, Git, REST APIs, Linux

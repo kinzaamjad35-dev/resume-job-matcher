@@ -1,0 +1,21 @@
+Bilal Ahmed
+SAMPLE DATA: fictional CV for demonstration.
+bilal.ahmed@example.com | +44 7700 900456
+
+Profile
+Recent graduate interested in data analysis and machine learning.
+
+Experience
+Data Analyst Intern, CityBank (2025 - Present)
+- Responsible for cleaning spreadsheets in Excel
+- Helped with Power BI dashboards for the finance team
+- Worked on SQL queries for monthly reports
+
+Projects
+- Built a house price prediction model in Python with scikit-learn as a university project
+
+Education
+BSc in Mathematics, University of Manchester (2021 - 2024)
+
+Skills
+Python, pandas, SQL, Excel, Power BI, statistics, machine learning basics

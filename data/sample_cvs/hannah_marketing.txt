@@ -1,0 +1,22 @@
+Hannah Clarke
+SAMPLE DATA: fictional CV for demonstration.
+hannah.clarke@example.com | +44 7700 900789
+
+Summary
+Digital marketing manager with 6 years of experience growing e-commerce brands.
+
+Experience
+Digital Marketing Manager, Cosy Living (2022 - Present)
+- Managed a £40,000 monthly budget across Google Ads and Meta Ads, achieving 4.2x return on ad spend
+- Led SEO and content marketing strategy that grew organic traffic by 120%
+- Led a team of 3 executives and reported to stakeholders using Google Analytics and Excel
+
+Marketing Executive, Bloom Fashion (2019 - 2022)
+- Ran email marketing in HubSpot with a 28% open rate
+- Managed social media channels on Instagram and TikTok
+
+Education
+BA in Marketing, University of Bristol (2015 - 2018)
+
+Skills
+SEO, Google Ads, Meta Ads, paid social, content marketing, email marketing, HubSpot, Google Analytics, Excel, social media, budgeting, leadership, communication

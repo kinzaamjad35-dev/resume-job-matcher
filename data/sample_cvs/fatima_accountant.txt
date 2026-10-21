@@ -1,0 +1,21 @@
+Fatima Noor
+SAMPLE DATA: fictional CV for demonstration.
+fatima.noor@example.com | +44 7700 900321
+
+Summary
+Chartered accountant with 5 years of experience in financial reporting and month-end close.
+
+Experience
+Senior Accountant, Greenfield Group (2021 - Present)
+- Prepared IFRS financial statements for 6 subsidiaries
+- Reduced month-end close from 10 to 6 days by streamlining reconciliations
+- Built Excel models for budgeting and variance analysis
+
+Accountant, Harper & Co (2019 - 2021)
+- Handled bookkeeping, general ledger and VAT returns for 30 clients
+
+Education
+BSc in Accounting and Finance, University of Birmingham (2015 - 2018)
+
+Skills
+Accounting, financial reporting, IFRS, Excel, budgeting, reconciliations, communication

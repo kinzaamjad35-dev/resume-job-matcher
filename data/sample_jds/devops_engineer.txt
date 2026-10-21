@@ -1,0 +1,24 @@
+DevOps Engineer - Stratus Cloud Services
+SAMPLE DATA: fictional job description for demonstration.
+
+About the role
+Stratus runs infrastructure for fintech clients. We are hiring a DevOps Engineer to automate, scale and secure our cloud platform.
+
+Responsibilities
+- Design and maintain infrastructure as code with Terraform on AWS
+- Operate Kubernetes clusters and containerised microservices with Docker
+- Build CI/CD pipelines with GitHub Actions and Jenkins
+- Implement monitoring and alerting with Prometheus and Grafana
+- Improve security, IAM policies and incident response
+
+Requirements
+- 4+ years of experience in DevOps, SRE or cloud engineering
+- Strong AWS, Kubernetes, Docker and Terraform skills
+- Linux administration and Bash or Python scripting
+- Networking fundamentals: DNS, load balancing, TCP/IP
+- Bachelor's degree in a technical field
+
+Nice to have
+- Ansible
+- Azure or GCP certification
+- Go

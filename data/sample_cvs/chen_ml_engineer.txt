@@ -1,0 +1,22 @@
+Chen Wei
+SAMPLE DATA: fictional CV for demonstration.
+chen.wei@example.com | +1 555 0100 222
+
+Summary
+Machine learning engineer with 6 years of experience in deep learning, NLP and MLOps.
+
+Experience
+Senior ML Engineer, VoiceLoop (2021 - Present)
+- Led a team of 4 engineers building transformer-based NLP models in PyTorch and Hugging Face
+- Built MLOps pipelines on Kubernetes and AWS, cutting model deployment time from 2 weeks to 1 day
+- Served models through FastAPI microservices handling 3 million requests per day
+
+ML Engineer, VisionWorks (2019 - 2021)
+- Developed computer vision models for object detection with TensorFlow
+- Improved model accuracy by 9% through data augmentation and feature engineering
+
+Education
+MSc in Computer Science, University of Toronto (2017 - 2019)
+
+Skills
+Python, PyTorch, TensorFlow, Hugging Face, NLP, deep learning, machine learning, scikit-learn, SQL, Docker, Kubernetes, AWS, MLflow, FastAPI, Git, Linux

@@ -1,0 +1,24 @@
+Data Scientist (Mid-level) - Northwind Retail Analytics
+SAMPLE DATA: fictional job description for demonstration.
+
+About the role
+We are looking for a Data Scientist to build demand forecasting and customer analytics models that guide pricing and inventory decisions across 300 stores.
+
+Responsibilities
+- Develop machine learning models for time-series forecasting and customer churn prediction
+- Perform exploratory data analysis and feature engineering on large sales datasets
+- Communicate findings to stakeholders through clear dashboards and presentations
+- Deploy models into production with the engineering team and monitor their performance
+- Design A/B tests and evaluate the impact of pricing experiments
+
+Requirements
+- 3+ years of experience in data science or machine learning
+- Strong Python, pandas, scikit-learn and SQL skills
+- Experience with gradient boosting (XGBoost or LightGBM)
+- Solid statistics: hypothesis testing and experiment design
+- Bachelor's degree in Computer Science, Statistics, Mathematics or a related field
+
+Nice to have
+- Experience with AWS or GCP, Docker and MLOps tooling such as MLflow
+- Data visualization with Plotly, Tableau or Power BI
+- Familiarity with Spark
