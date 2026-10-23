@@ -10,7 +10,7 @@
   <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-F59E0B" alt="License: MIT"></a>
 </p>
 
-<p align="center"><b>Live demo:</b> coming soon</p>
+<p align="center"><b>Live demo:</b> <a href="https://resume-job-matcher-24ddesoq2txwkbmpsrdtur.streamlit.app">resume-job-matcher.streamlit.app</a></p>
 
 <table align="center">
   <tr>
