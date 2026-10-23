@@ -16,7 +16,15 @@ ACTION_VERBS = {
     "optimised", "optimized", "organised", "owned", "pioneered", "planned", "produced", "reduced", "redesigned",
     "refactored", "resolved", "containerised", "containerized", "scaled", "shipped", "spearheaded", "streamlined", "trained", "transformed", "mentored",
     "analysed", "analyzed", "coordinated", "negotiated", "prepared", "wrote", "maintained", "partnered", "ran",
+    "taught", "won", "made", "sold", "spoke", "drew", "founded", "chaired", "hosted", "won",
 }
+# Label-style list lines ("Languages: English, Urdu") are not achievement bullets.
+LABEL_LINE = re.compile(r"^[A-Z][A-Za-z0-9 &/()+-]{0,30}:\s")
+
+
+def is_action_verb(word: str) -> bool:
+    w = word.lower()
+    return w in ACTION_VERBS or (w.endswith("ed") and len(w) > 4 and w not in WEAK_STARTS)
 WEAK_STARTS = {"responsible", "worked", "helped", "assisted", "involved", "tasked", "duties", "did", "was", "handled", "participated"}
 VERB_SUGGEST = {
     "responsible": "Owned", "worked": "Developed", "helped": "Contributed to", "assisted": "Supported",
@@ -61,12 +69,20 @@ def check_ats(text: str, filename: str = "", raw: bytes | None = None) -> dict:
 
 
 def bullets(text: str) -> list[str]:
-    out = []
+    """Bullet points, re-joining lines that PDF extraction wrapped onto the next line."""
+    out: list[str] = []
+    open_bullet = False
     for line in text.splitlines():
         s = line.strip()
-        if re.match(r"^[-*•·]\s+", s):
-            out.append(re.sub(r"^[-*•·]\s+", "", s))
-    return out
+        if re.match(r"^[-*•·▪◦]\s+", s):
+            out.append(re.sub(r"^[-*•·▪◦]\s+", "", s))
+            open_bullet = True
+        elif open_bullet and s and not out[-1].rstrip().endswith((".", "!", "?")) and "|" not in s \
+                and not (s.isupper() and not re.search(r"\d", s)):
+            out[-1] = out[-1].rstrip() + " " + s
+        else:
+            open_bullet = False
+    return [b for b in out if not LABEL_LINE.match(b)]
 
 
 def analyse_bullets(text: str) -> list[dict]:
@@ -77,7 +93,7 @@ def analyse_bullets(text: str) -> list[dict]:
         if not words:
             continue
         first = words[0].lower()
-        has_verb = first in ACTION_VERBS
+        has_verb = is_action_verb(first)
         has_number = bool(re.search(r"\d", b))
         weak_start = first in WEAK_STARTS
         if has_verb and has_number:

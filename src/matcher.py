@@ -71,11 +71,17 @@ STOP_EXTRA = {"experience", "work", "team", "role", "years", "strong", "ability"
               "field", "company", "hands", "proven", "etc", "years experience", "similar", "high", "day", "great", "clear", "build", "looking", "data", "team", "use", "make", "help"}
 
 
+META_LINE = re.compile(r"^\s*(?:\*\*|__)?\s*(?:company|location|type|salary|pay|stipend|duration|start date|"
+                       r"closing date|deadline|apply|contact|employment type|job type|work mode)\s*(?:\*\*|__)?\s*:", re.IGNORECASE)
+
+
 def jd_keywords(jd: str, cv: str = "", top_n: int = 20) -> list[str]:
     """Key phrases of the JD using a RAKE-style scorer (split on stop words and punctuation)."""
     from sklearn.feature_extraction.text import ENGLISH_STOP_WORDS
 
-    lines = [l for l in jd.splitlines()[1:] if "sample data" not in l.lower()]
+    # Skip the title and metadata lines such as "**Location:** DHA Phase 8" (not requirements).
+    lines = [l.replace("**", "") for l in jd.splitlines()[1:]
+             if "sample data" not in l.lower() and not META_LINE.match(l)]
     stop = ENGLISH_STOP_WORDS | STOP_EXTRA | {"or", "and", "with", "such", "need", "perform", "solid", "expert", "basic", "guide", "runs", "deep", "own", "lead", "grow", "operate", "implement", "improve", "maintain", "write", "integrate", "plan", "run", "manage", "develop", "design", "builds", "build"}
     phrases: list[list[str]] = []
     for chunk in re.split(r"[,.;:()!?\n]|\s-\s|^- ", "\n".join(lines), flags=re.M):
@@ -111,9 +117,9 @@ def jd_keywords(jd: str, cv: str = "", top_n: int = 20) -> list[str]:
 
 
 def keyword_in(text: str, kw: str) -> bool:
-    """True if every word of the phrase appears in the text (prefix match tolerates plurals and tense)."""
+    """True if every word of the phrase appears in the text (stem plus up to 3 letters tolerates plurals and tense, so "internal" no longer matches "internship")."""
     low = text.lower().replace("-", " ")
-    return all(re.search(rf"(?<![a-z]){re.escape(w[:max(4, len(w) - 2)])}", low) for w in kw.lower().replace("-", " ").split())
+    return all(re.search(rf"(?<![a-z]){re.escape(w[:max(4, len(w) - 2)])}[a-z]{{0,3}}(?![a-z])", low) for w in kw.lower().replace("-", " ").split())
 
 
 @dataclass
