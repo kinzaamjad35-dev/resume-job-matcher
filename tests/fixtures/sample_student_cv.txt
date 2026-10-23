@@ -1,0 +1,55 @@
+ZOYA FARHAN
+Model Town, Faisalabad, Pakistan | candidate@example.com | 0300-0000000
+linkedin.com/in/zoya-farhan-example | github.com/zoyafarhan-example | Available for full-time internship until February 2027
+PROFESSIONAL SUMMARY
+IB Diploma graduate (38/45) on a gap year, building machine learning and AI web applications in Python. Developed and deployed a sales 
+forecasting dashboard, a CV-to-job matching tool and an offline AI maths tutor. Founder of Code Roshni, an education initiative that has 
+taught 80+ children, with experience chairing Model United Nations committees and coordinating 300+ delegate events. Seeking a software 
+house or IT department internship in Python/AI, web development or software quality.
+TECHNICAL SKILLS
+- Languages and ML: Python, HTML, CSS (basic); pandas, NumPy, scikit-learn, LightGBM, XGBoost, Prophet, SHAP, sentence-transformers
+- AI and data: time-series forecasting, model evaluation and cross-validation, semantic text matching (NLP), local LLM apps (Ollama), Plotly
+- Apps and tools: Streamlit, Streamlit Cloud, SQLite, Git and GitHub, pytest, Microsoft 365, Google Sheets, Canva
+PROJECTS
+AI Sales Forecaster | Python, LightGBM, XGBoost, Prophet, Streamlit Oct 2026
+- Forecasts daily demand for 500 store-item series up to 90 days ahead, trained on a 913,000-row Kaggle retail dataset.
+- Compared 5 models with time-series cross-validation; LightGBM achieved 29% lower error than the "same day last year" baseline (MAE 
+5.90, MAPE 12.93%), with 80% prediction intervals (79.3% coverage).
+- Deployed a 6-page dashboard with SHAP explanations, anomaly detection, what-if promotion and price scenarios, an inventory planner 
+(safety stock, reorder point), CSV upload and Excel export.
+Live demo: sales-forecaster-demo.example.app | Code: github.com/zoyafarhan-example/sales-forecaster
+Resume and Job Matcher | Python, sentence-transformers, scikit-learn, Streamlit Oct 2026
+- Scores a CV against a job description out of 100 from 5 weighted components (skills, semantic similarity, keywords, experience, 
+education), using MiniLM sentence embeddings and a 98-skill taxonomy.
+- Includes an ATS-readiness check, keyword gap highlighting, a bullet-point improver, a PDF report, a compare-3-jobs view and a recruiter 
+mode that ranks CVs and exports a CSV shortlist.
+- Reached 0.98 pairwise ranking accuracy on 32 hand-labelled CV/job pairs, ranking the best CV first for 4 of 4 jobs; covered by 15 
+automated tests and runs with no paid API keys.
+Maths AI Tutor | Python, Ollama (Qwen2.5-3B), Streamlit, SQLite Oct 2026
+- Built an offline maths tutor for Grades 3 to 6 that runs a local language model to give step-by-step hints in Urdu and Roman Urdu; pilot 
+with students not yet run.
+- Uses a 60-question bank with code-verified answers, a safety filter that blocks hints revealing the answer, adaptive difficulty and a 
+caretaker progress dashboard with CSV export.
+EXPERIENCE
+Founder | Code Roshni, Lahore Oct 2024 – Present
+- Taught technology and computer science to 100+ underserved children at NGOs in Faisalabad and Multan (1,000+ lessons); 
+designed the curriculum and recruited volunteer tutors.
+Career Counsellor Assistant | Crescent Hills College 2023 – 2025
+- Guided 70+ students one-on-one on university and program choices, and secured participation from three national and two overseas 
+universities at school career fairs.
+Career Advisor (Part-Time, 5 months) | Northbridge Advisors 2025
+- Advised 30+ students on career direction and university options, and hosted career fairs at venues across Faisalabad.
+Director of Registrations | CHC Youth Summit (First Edition) 2023
+- Ran registration and payment tracking for 300+ delegates and produced a post-event statistics report using Google Sheets and Forms.
+Legal Intern (3 weeks) | Rahman & Co. Advocates 2025
+- Conducted legal research, analysed precedents and drafted case summaries for senior lawyers.
+EDUCATION
+IB Diploma, 38/45 | Crescent Hills College 2024 – 2026
+O-Levels, 9 A*s and As | Cedar Grove School 2021 – 2024
+LEADERSHIP AND AWARDS
+- Debating: Committee Chair, Regional Youth Parliament; Best Speaker, Inter-College Declamation Contest; plus 3 additional honours
+- Research: co-authored a school research poster on water quality in local canals
+- Sports: Table Tennis Champion, inter-house tournament
+CERTIFICATIONS AND LANGUAGES
+- Certifications: Introduction to Calculus, online course (in progress, Oct – Dec 2026); Basic First Aid (2025)
+- Languages: English (fluent), Urdu (native)

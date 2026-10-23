@@ -8,7 +8,7 @@ from src.matcher import jd_keywords, keyword_in, match
 from src.profile import cv_years, experience_section, required_years
 
 FIX = Path(__file__).parent / "fixtures"
-KINZA_CV = (FIX / "kinza_cv.txt").read_text()
+STUDENT_CV = (FIX / "sample_student_cv.txt").read_text()
 JD = (FIX / "ai_ml_intern_jd.md").read_text()
 
 
@@ -17,7 +17,7 @@ def yrs(body: str) -> float:
 
 
 @pytest.mark.parametrize("body,expected", [
-    ("Founder | Digital Inqalab Oct 2024 – Present", 2.0),        # en dash + Present
+    ("Founder | Code Roshni Oct 2024 – Present", 2.0),        # en dash + Present
     ("Analyst Oct 2024 — Current", 2.0),                          # em dash + Current
     ("Analyst Oct 2024 - now", 2.0),
     ("Analyst Oct 2024 to Present", 2.0),
@@ -39,12 +39,12 @@ def test_education_and_projects_dates_not_counted():
 
 
 def test_word_experience_in_summary_does_not_pick_wrong_section():
-    sec = experience_section(KINZA_CV)
-    assert sec is not None and "Digital Inqalab" in sec and "IB Diploma, 40/45" not in sec
+    sec = experience_section(STUDENT_CV)
+    assert sec is not None and "Code Roshni" in sec and "IB Diploma, 38/45" not in sec
 
 
-def test_kinza_cv_experience_detected():
-    assert cv_years(KINZA_CV, today=2026, today_month=10) == pytest.approx(3.8)
+def test_student_cv_experience_detected():
+    assert cv_years(STUDENT_CV, today=2026, today_month=10) == pytest.approx(3.8)
 
 
 def test_required_years_ranges_and_dashes():
@@ -54,8 +54,8 @@ def test_required_years_ranges_and_dashes():
     assert required_years("Requirements: 3+ years of experience") == 3
 
 
-def test_kinza_match_experience_component_full():
-    r = match(KINZA_CV, JD, use_embeddings=False)
+def test_student_match_experience_component_full():
+    r = match(STUDENT_CV, JD, use_embeddings=False)
     assert r.cv_years > 0 and r.components["experience"] == 100.0
 
 
@@ -77,7 +77,7 @@ def test_pdf_wrapped_bullets_rejoined_and_labels_skipped():
     assert b == ["Compared 5 models; LightGBM achieved 29% lower error (MAE 5.90, MAPE 12.93%)."]
 
 
-def test_kinza_bullet_count_reasonable():
-    weak = analyse_bullets(KINZA_CV)
+def test_student_bullet_count_reasonable():
+    weak = analyse_bullets(STUDENT_CV)
     assert len(weak) <= 6
     assert not any(w["original"].startswith(("Compared", "Guided", "Taught", "Languages:")) for w in weak)
