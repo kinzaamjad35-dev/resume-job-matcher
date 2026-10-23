@@ -55,11 +55,45 @@ def experience_section(cv: str) -> str | None:
     return None
 
 
+_MNAMES = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
+
+
+def normalise_dates(text: str) -> str:
+    """Rewrite numeric and short-year dates as 'Mon YYYY' so one set of patterns handles them all:
+    2021-03 / 2021/03 -> Mar 2021, 03/2021 / 3.2021 -> Mar 2021, Sept '19 -> Sept 2019."""
+    text = _DASHES.sub("-", text)
+    text = re.sub(r"(?<![\d/.-])((?:19|20)\d\d)[-/.](0?[1-9]|1[0-2])(?![\d/.-])",
+                  lambda m: f"{_MNAMES[int(m.group(2)) - 1]} {m.group(1)}", text)
+    text = re.sub(r"(?<![\d/.-])(0?[1-9]|1[0-2])[/.]((?:19|20)\d\d)(?![\d/.-])",
+                  lambda m: f"{_MNAMES[int(m.group(1)) - 1]} {m.group(2)}", text)
+    text = re.sub(rf"\b((?:{MONTHS})[a-z]*\.?,?)\s*['\u2019](\d\d)\b",
+                  lambda m: f"{m.group(1)} {2000 + int(m.group(2)) if int(m.group(2)) < 50 else 1900 + int(m.group(2))}",
+                  text, flags=re.IGNORECASE)
+    return text
+
+
+def without_other_sections(cv: str) -> str:
+    """The CV minus education/projects/skills/... sections (used when there is no experience heading,
+    so that 'BSc 2022 - 2026' is not counted as employment)."""
+    out, skip = [], False
+    for line in cv.splitlines():
+        s = line.strip()
+        if OTHER_HEADING.match(s):
+            skip = not re.match(r"^\s*(?:summary|professional summary|profile)\b", s, re.IGNORECASE)
+            continue
+        if EXP_HEADING.match(s):
+            skip = False
+            continue
+        if not skip:
+            out.append(line)
+    return "\n".join(out)
+
+
 def date_spans(text: str, today: tuple[int, int]) -> list[tuple[int, int]]:
     """Date ranges as half-open (start, end) month indices (year*12 + month)."""
     now = today[0] * 12 + today[1]  # "Present" = start of the current month
     spans = []
-    for line in _DASHES.sub("-", text).splitlines():
+    for line in normalise_dates(text).splitlines():
         used = []
         for m in RANGE_RE.finditer(line):
             used.append(m.span())
@@ -115,7 +149,13 @@ def education_level(text: str) -> tuple[int, str]:
 
 def required_years(jd: str) -> float | None:
     """Minimum years asked for; for a range such as '0-1 years' or '3 to 5 years' the lower bound."""
-    m = re.findall(r"(\d+)\s*\+?\s*(?:(?:-|to)\s*\d+\s*\+?\s*)?years?", _DASHES.sub("-", jd), re.IGNORECASE)
+    t = _DASHES.sub("-", jd)
+    if re.search(r"\bno (?:prior |previous |work )?experience (?:is )?(?:required|needed|necessary)\b", t, re.IGNORECASE):
+        return 0.0
+    words = {"one": 1, "two": 2, "three": 3, "four": 4, "five": 5, "six": 6, "seven": 7, "eight": 8, "nine": 9, "ten": 10}
+    t = re.sub(r"\b(" + "|".join(words) + r")\b", lambda m: str(words[m.group(1).lower()]), t, flags=re.IGNORECASE)
+    # 'yrs' counts; 'years ago' / 'years old' (company age, product age) do not.
+    m = re.findall(r"(\d+)\s*\+?\s*(?:(?:-|to)\s*\d+\s*\+?\s*)?(?:years?|yrs?)\b(?!\s+(?:ago|old)\b)", t, re.IGNORECASE)
     vals = [int(x) for x in m if int(x) < 30]
     return float(min(vals)) if vals else None
 
@@ -136,7 +176,7 @@ def cv_years(cv: str, today: int | None = None, today_month: int | None = None) 
         return float(max(int(x) for x in explicit))
     block = experience_section(cv)
     if block is None:
-        block = cv
+        block = without_other_sections(cv)
     return round(merged_months(date_spans(block, (year, month))) / 12, 1)
 
 
@@ -145,6 +185,11 @@ def seniority_from_years(years: float) -> tuple[int, str]:
         if lo <= years < hi:
             return lvl, name
     return 3, "Lead / Principal"
+
+
+def jd_seniority_stated(jd: str, req: float | None) -> bool:
+    """True if the JD signals a level (title words, 'mid-level' or years); False means jd_seniority guessed."""
+    return req is not None or bool(re.search(r"\b(lead|principal|head of|staff|senior|junior|graduate|entry[- ]level|intern|mid[- ]?level)\b", jd.lower()[:300]))
 
 
 def jd_seniority(jd: str, req: float | None) -> tuple[int, str]:

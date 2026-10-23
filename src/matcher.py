@@ -172,7 +172,7 @@ def match(cv: str, jd: str, use_embeddings: bool = True) -> MatchResult:
     jd_sen = profile.jd_seniority(jd, need)
     gap = cv_sen[0] - jd_sen[0]
     sen_fit = "Matches" if gap == 0 else ("Above requirement (possibly over-qualified)" if gap > 0 else "Below requirement")
-    if need is None and gap < 0:
+    if need is None and gap < 0 and profile.jd_seniority_stated(jd, need):
         experience = max(0.0, 100 - 35 * -gap)
 
     cv_edu = profile.education_level(cv)

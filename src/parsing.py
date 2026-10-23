@@ -16,11 +16,24 @@ def extract_text(data: bytes, filename: str) -> str:
     elif name.endswith(".docx"):
         import docx
 
+        from docx.table import Table
+        from docx.text.paragraph import Paragraph
+
         document = docx.Document(io.BytesIO(data))
-        parts = [p.text for p in document.paragraphs]
-        for table in document.tables:
-            for row in table.rows:
-                parts.append(" | ".join(cell.text for cell in row.cells))
+        # Walk the body in document order so a table under EXPERIENCE stays under EXPERIENCE
+        # (python-docx lists paragraphs and tables separately, which moved tables to the end).
+        parts = []
+        for el in document.element.body.iterchildren():
+            tag = el.tag.rsplit("}", 1)[-1]
+            if tag == "p":
+                parts.append(Paragraph(el, document).text)
+            elif tag == "tbl":
+                for row in Table(el, document).rows:
+                    cells = []
+                    for cell in row.cells:  # merged cells repeat; keep each once
+                        if not cells or cell.text != cells[-1]:
+                            cells.append(cell.text)
+                    parts.append(" | ".join(cells))
         text = "\n".join(parts)
     elif name.endswith((".txt", ".md")):
         text = data.decode("utf-8", errors="ignore")
